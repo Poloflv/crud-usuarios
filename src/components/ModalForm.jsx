@@ -6,6 +6,7 @@ const ModalForm = ({isShowModal,  createUser, isUserToUpdate, updateUser, setIsS
     const {handleSubmit, register , reset,formState: {errors}} = useForm()
 
     const submit = (data) => {
+        data.image_url =null
         if(isUserToUpdate){
             updateUser(data, reset)
         }else{
@@ -26,7 +27,7 @@ const ModalForm = ({isShowModal,  createUser, isUserToUpdate, updateUser, setIsS
     },[isUserToUpdate])
 
   return (
-    <section className={`fixed top-0 bottom-0 right-0 left-0 bg-black/60 flex justify-center items-center p-10 transition-[opacity_transform] duration-300 ${isShowModal ? "visible opacity-100 scale-100" : "invisible opacity-0 scale-0"} `}>
+    <section className={`fixed top-0 bottom-0 right-0 left-0 bg-black/60 flex justify-center items-center transition-[opacity_transform] duration-300 ${isShowModal ? "visible opacity-100 scale-100" : "invisible opacity-0 scale-0"} `}>
         <form onSubmit={handleSubmit(submit)} action="" className='bg-white grid gap-4 p-4 rounded-md w-[419px] max-w-[419px] relative'>
             <button type='button' onClick={handleClickCloseModal} className='font-bold absolute top-4 right-4'>x</button>
             <h2 className='font-bold text-3xl text-[#0F0F2D]'>{isUserToUpdate ? "Editar usuario" : "Nuevo Usuario"}</h2>
@@ -80,10 +81,7 @@ const ModalForm = ({isShowModal,  createUser, isUserToUpdate, updateUser, setIsS
                 })}/>
                 {errors.birthday && <p className='text-red-500 text-sm'>Este campo es requerido</p>}
             </div>
-            <div className='grid'>
-                <label htmlFor="image_url">imagen(url)</label>
-                <input placeholder='url' className='outline-none border-[1px] border-[#C3C1C1] p-3 rounded-[6px]' id='image_url' type="text" {...register("image_url")} />
-            </div>
+
             <button className='bg-[#555A88] text-[#FFFFFF] p-4'>{isUserToUpdate ? "Guardar cambios" : "Agregar nuevo usuario"}</button>
         </form>
     </section>
