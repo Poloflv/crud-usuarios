@@ -20,6 +20,17 @@ const ModalForm = ({isShowModal,  createUser, isUserToUpdate, updateUser, setIsS
         SetisUserToUpdate(null)
     }
 
+    const mostrarContraseña = () => {
+        var tipo = document.getElementById("password");
+      if(tipo.type == "password"){
+          tipo.type = "text";
+      }else{
+          tipo.type = "password";
+      }
+    }
+
+
+
     useEffect(() => {
         if (isUserToUpdate) {
             reset(isUserToUpdate)
@@ -29,7 +40,7 @@ const ModalForm = ({isShowModal,  createUser, isUserToUpdate, updateUser, setIsS
   return (
     <section className={`fixed z-10 top-0 bottom-0 right-0 left-0 bg-black/60 flex justify-center items-center transition-[opacity_transform] duration-300 ${isShowModal ? "visible opacity-100 scale-100" : "invisible opacity-0 scale-0"} `}>
         <form onSubmit={handleSubmit(submit)} action="" className='bg-white grid gap-4 p-4 rounded-md w-[419px] max-w-[419px] relative'>
-            <button type='button' onClick={handleClickCloseModal} className='font-bold absolute top-4 right-4'>x</button>
+            <button type='button' onClick={handleClickCloseModal} className='font-bold absolute top-4 right-4 bg-slate-400/20  px-[9px] pb-1 rounded-full hover:bg-slate-400/80 transition-colors'>x</button>
             <h2 className='font-bold text-3xl text-[#0F0F2D]'>{isUserToUpdate ? "Editar usuario" : "Nuevo Usuario"}</h2>
             <div className='grid'>
                 <label htmlFor="first_name">nombre</label>
@@ -61,16 +72,17 @@ const ModalForm = ({isShowModal,  createUser, isUserToUpdate, updateUser, setIsS
             </div>
             <div className='grid'>
                 <label htmlFor="password">contraseña</label>
-                <input placeholder='123qE!wq' className='outline-none border-[1px] border-[#C3C1C1] p-3 rounded-[6px]' id='password' type="password" {...register("password",{
+                <section className='flex'><input placeholder='123qE!wq' className='outline-none  border-[1px] flex-1 border-[#C3C1C1] p-3 rounded-[6px]' id='password' type="password" {...register("password",{
                     required: {
                         value: true,
                         message: "Este campo es requerido"
                     },
-                    pattern:{
-                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/,
-                        message:"no cumples con el formato de contraseña"
+                    minLength:{
+                        value: 8,
+                        message: "Minimo 8 caracteres"
                     }
                 })} />
+                <button  className='mx-2' onClick={mostrarContraseña} type='button'><i className='bx bx-low-vision'></i></button></section>
                 {errors.password && <p className='text-red-500 text-sm'>{errors.password.message}</p>}
             </div>
             
