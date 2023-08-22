@@ -106,3 +106,37 @@
       }
 
 
+
+
+
+
+      .text-shadow-pop-right {
+        -webkit-animation: text-shadow-pop-right 0.6s both;
+                animation: text-shadow-pop-right 0.6s both;
+    }
+
+@-webkit-keyframes text-shadow-pop-right {
+    0% {
+      text-shadow: 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      text-shadow: 1px 0 #a8a8a89f, 2px 0 #a8a8a89f, 3px 0 #a8a8a89f, 4px 0 #a8a8a89f, 5px 0 #a8a8a89f, 6px 0 #a8a8a89f, 7px 0 #a8a8a89f, 8px 0 #a8a8a89f;
+      -webkit-transform: translateX(-8px);
+              transform: translateX(-8px);
+    }
+  }
+  @keyframes text-shadow-pop-right {
+    0% {
+      text-shadow: 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f, 0 0 #a8a8a89f;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      text-shadow: 1px 0 #a8a8a89f, 2px 0 #a8a8a89f, 3px 0 #a8a8a89f, 4px 0 #a8a8a89f, 5px 0 #a8a8a89f, 6px 0 #a8a8a89f, 7px 0 #a8a8a89f, 8px 0 #a8a8a89f;
+      -webkit-transform: translateX(-8px);
+              transform: translateX(-8px);
+    }
+  }
+  

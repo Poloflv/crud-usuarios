@@ -66,10 +66,10 @@ function App() {
   }, [])
 
   return (
-    <section className='color-change-2x min-h-screen'>
+    <section className='min-h-screen'>
     <header className='flex flex-col justify-between p-16 sm:flex-row '>
-    <h2 className='font-bold text-5xl blur-in-expand '>Usuarios</h2>
-    <button className='bg-[#555A88] toStretch text-[#FFFFFF] p-4 mt-4 sm:mt-0' onClick={handleClickOpenModal}><i className='bx bx-plus pr-2 pl-4'></i>Crear nuevo usuario</button>
+    <h2 className='font-bold text-5xl blur-in-expand tracking-wider  text-shadow-pop-right'>Usuarios</h2>
+    <button className='bg-[#555A88] toStretch text-[#FFFFFF]  p-4 mt-4 sm:mt-0' onClick={handleClickOpenModal}><i className='bx bx-plus pr-2 pl-4'></i>Crear nuevo usuario</button>
     </header>
     <ModalForm isShowModal={isShowModal}  createUser={createUser} isUserToUpdate={isUserToUpdate} updateUser={updateUser} SetisUserToUpdate={SetisUserToUpdate} setIsShowModal={setIsShowModal}/>
     <UserList users={users} deleteUser={deleteUser} handleClickUpdateUser={handleClickUpdateUser}/>
